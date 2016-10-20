@@ -1,8 +1,12 @@
+var path = require("path");
+
 module.exports = {
   entry: './main.js',
   output: {
-    path: './',
-    filename: 'index.js'
+    path: path.resolve(process.cwd(), 'build'),
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
+    publicPath: path.resolve(process.cwd(), 'build')
   },
   devServer: {
     inline: true,
