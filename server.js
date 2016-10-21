@@ -1,7 +1,6 @@
 const express = require('express');
 const webpackConfig = require('./webpack.config');
 var path = require("path");
-console.log(webpackConfig);
 
 const addDevMiddlewares = (app, webpackConfig) => {
   const webpack = require('webpack');
@@ -23,9 +22,7 @@ const addDevMiddlewares = (app, webpackConfig) => {
   const fs = middleware.fileSystem;
 
   app.get('*', (req, res) => {
-    console.log(path.join(compiler.outputPath, "index.html"));
     fs.readFile(path.join(compiler.outputPath, "index.html"), (err, file) => {
-      console.log(err, file);
       if (err) {
         res.sendStatus(404);
       } else {
@@ -41,5 +38,5 @@ const port = process.argv.port || process.env.PORT || 8080;
 addDevMiddlewares(app, webpackConfig);
 
 app.listen(port, (err) => {
-console.log('started app');
+console.log('started app', port);
 });

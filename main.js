@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
+import Home from './home';
 
 class App extends React.Component {
    render() {
@@ -13,16 +14,6 @@ class App extends React.Component {
             </ul>
 
            {this.props.children}
-         </div>
-      )
-   }
-}
-
-class Home extends React.Component {
-   render() {
-      return (
-         <div>
-            <h1>Home...</h1>
          </div>
       )
    }
